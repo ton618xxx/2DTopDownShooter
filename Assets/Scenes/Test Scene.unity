@@ -750,6 +750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 6
   theRB: {fileID: 2054328064}
+  gunArm: {fileID: 795985862}
 --- !u!58 &2054328063
 CircleCollider2D:
   m_ObjectHideFlags: 0
