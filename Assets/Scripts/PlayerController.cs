@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,11 +12,13 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D theRB;
 
-    public Transform gunArm; 
+    public Transform gunArm;
+
+    private Camera theCam; 
 
     void Start()
     {
-        
+        theCam = Camera.main; 
     }
 
     void Update()
@@ -29,7 +32,17 @@ public class PlayerController : MonoBehaviour
 
 
         Vector3 mousePos =  Input.mousePosition;
-        Vector3 screenPoint = Camera.main.WorldToScreenPoint(transform.localPosition);
+        Vector3 screenPoint = theCam.WorldToScreenPoint(transform.localPosition);
+
+        if(mousePos.x < screenPoint.x)
+        {
+            transform.localScale = new Vector3(-1f,1f,1f);
+            gunArm.localScale = new Vector3(-1f, -1f, 1f); 
+        }else
+        {
+            transform.localScale = Vector3.one;
+            gunArm.localScale = Vector3.one; 
+        }
 
         //rotate gun arm
         Vector2 offset = new Vector2(mousePos.x - screenPoint.x, mousePos.y - screenPoint.y);
