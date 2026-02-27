@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;   
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -8,7 +10,10 @@ public class EnemyController : MonoBehaviour
     public float rangeToChasePlayer;
     private Vector3 moveDirection;
 
-    public Animator anim; 
+    public Animator anim;
+
+    public int health = 150; 
+
 
 
 
@@ -42,5 +47,15 @@ public class EnemyController : MonoBehaviour
 
 
 
+    }
+
+    public void DamageEnemy(int damage)
+    {
+        health -= damage;
+
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
