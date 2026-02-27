@@ -758,7 +758,7 @@ GameObject:
   - component: {fileID: 1759938839}
   m_Layer: 0
   m_Name: 'Enemy - Skeleton '
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -868,6 +868,7 @@ MonoBehaviour:
   moveSpeed: 3
   rangeToChasePlayer: 7
   anim: {fileID: 1759938839}
+  health: 150
 --- !u!95 &1759938839
 Animator:
   serializedVersion: 7
@@ -905,7 +906,7 @@ GameObject:
   - component: {fileID: 2054328065}
   m_Layer: 0
   m_Name: 'Player '
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -919,7 +920,7 @@ Transform:
   m_GameObject: {fileID: 2054328060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.76, y: -1.97, z: 0}
+  m_LocalPosition: {x: -10.81, y: -0.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
