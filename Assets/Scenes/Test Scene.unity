@@ -867,6 +867,7 @@ MonoBehaviour:
   theRB: {fileID: 1759938837}
   moveSpeed: 3
   rangeToChasePlayer: 7
+  anim: {fileID: 1759938839}
 --- !u!95 &1759938839
 Animator:
   serializedVersion: 7
