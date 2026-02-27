@@ -8,6 +8,8 @@ public class EnemyController : MonoBehaviour
     public float rangeToChasePlayer;
     private Vector3 moveDirection;
 
+    public Animator anim; 
+
 
 
     void Start()
@@ -25,12 +27,19 @@ public class EnemyController : MonoBehaviour
             moveDirection = Vector3.zero; 
         }
 
-
-
-
         moveDirection.Normalize();
 
-        theRB.linearVelocity = moveDirection * moveSpeed; 
+        theRB.linearVelocity = moveDirection * moveSpeed;
+
+        if (moveDirection != Vector3.zero) //animation setup 
+        {
+            anim.SetBool("isMoving", true);
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
+
 
 
     }
