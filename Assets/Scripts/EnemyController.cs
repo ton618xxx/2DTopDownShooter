@@ -16,8 +16,15 @@ public class EnemyController : MonoBehaviour
 
     public GameObject[] deathSplatters;
 
-    public GameObject hitEffect; 
+    public GameObject hitEffect;
 
+    public bool shouldShoot;
+
+    public GameObject bullet;
+
+    public Transform firePoint;
+    public float fireRate;
+    private float fireCounter; 
 
 
 
@@ -47,6 +54,17 @@ public class EnemyController : MonoBehaviour
         else
         {
             anim.SetBool("isMoving", false);
+        }
+
+        if(shouldShoot)
+        {
+            fireCounter -= Time.deltaTime;
+            if(fireCounter <= 0)
+            {
+                fireCounter = fireRate;
+                Instantiate (bullet, transform.position, transform.rotation);
+
+            }
         }
 
 
