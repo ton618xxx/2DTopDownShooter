@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour
             if(fireCounter <= 0)
             {
                 fireCounter = fireRate;
-                Instantiate (bullet, transform.position, transform.rotation);
+                Instantiate (bullet, firePoint.position, firePoint.rotation);
 
             }
         }
