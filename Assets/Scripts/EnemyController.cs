@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;   
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -24,7 +22,11 @@ public class EnemyController : MonoBehaviour
 
     public Transform firePoint;
     public float fireRate;
-    private float fireCounter; 
+    private float fireCounter;
+
+    public float shootRange; 
+
+    public SpriteRenderer theBody; 
 
 
 
@@ -35,17 +37,34 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < rangeToChasePlayer)
+        if(theBody.isVisible)
         {
-            moveDirection = PlayerController.instance.transform.position - transform.position;
-        }else
-        {
-            moveDirection = Vector3.zero; 
+            if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < rangeToChasePlayer)
+            {
+                moveDirection = PlayerController.instance.transform.position - transform.position;
+            }
+            else
+            {
+                moveDirection = Vector3.zero;
+            }
+
+            moveDirection.Normalize();
+
+            theRB.linearVelocity = moveDirection * moveSpeed;
+
+            if (shouldShoot && Vector3.Distance(transform.position, PlayerController.instance.transform.position) < shootRange)
+            {
+                fireCounter -= Time.deltaTime;
+                if (fireCounter <= 0)
+                {
+                    fireCounter = fireRate;
+                    Instantiate(bullet, firePoint.position, firePoint.rotation);
+
+                }
+            }
         }
 
-        moveDirection.Normalize();
 
-        theRB.linearVelocity = moveDirection * moveSpeed;
 
         if (moveDirection != Vector3.zero) //animation setup 
         {
@@ -55,37 +74,23 @@ public class EnemyController : MonoBehaviour
         {
             anim.SetBool("isMoving", false);
         }
-
-        if(shouldShoot)
-        {
-            fireCounter -= Time.deltaTime;
-            if(fireCounter <= 0)
-            {
-                fireCounter = fireRate;
-                Instantiate (bullet, firePoint.position, firePoint.rotation);
-
-            }
-        }
-
-
-
     }
 
     public void DamageEnemy(int damage)
     {
         health -= damage;
 
-        Instantiate(hitEffect, transform.position, transform.rotation); 
+        Instantiate(hitEffect, transform.position, transform.rotation);
 
-        if(health <= 0)
+        if (health <= 0)
         {
             Destroy(gameObject);
 
             int selectedSplatter = Random.Range(0, deathSplatters.Length);
 
-            int rotation = Random.Range(0, 4); 
+            int rotation = Random.Range(0, 4);
 
-            Instantiate(deathSplatters[selectedSplatter], transform.position, Quaternion.Euler(0f, 0f, rotation * 90f)); 
+            Instantiate(deathSplatters[selectedSplatter], transform.position, Quaternion.Euler(0f, 0f, rotation * 90f));
 
             //Instantiate(deathSplatters, transform.position, transform.rotation); 
         }
