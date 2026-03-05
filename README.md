@@ -1,4 +1,4 @@
-# 2D Top-Down Shooter Template
+# 2D Top-Down Shooter 
 
 Template for main project. Unity 2D top-down shooter.
 
