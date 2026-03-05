@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerHealthController : MonoBehaviour
 {
     public static PlayerHealthController instance;
 
     public int currentHealth;
     public int maxHealth;
+
+ 
 
     private void Awake()
     {
@@ -17,7 +20,11 @@ public class PlayerHealthController : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth; 
+        currentHealth = maxHealth;
+
+        UIController.instance.healthSlider.maxValue = maxHealth;
+        UIController.instance.healthSlider.value = currentHealth;
+        UIController.instance.healthText.text = currentHealth.ToString() + " / " + maxHealth.ToString();
     }
 
     void Update()
@@ -33,5 +40,9 @@ public class PlayerHealthController : MonoBehaviour
         {
             PlayerController.instance.gameObject.SetActive(false); 
         }
+
+
+        UIController.instance.healthSlider.value = currentHealth;
+        UIController.instance.healthText.text = currentHealth.ToString() + " / " + maxHealth.ToString();
     }
 }
