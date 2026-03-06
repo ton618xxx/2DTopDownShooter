@@ -1678,6 +1678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthController
   currentHealth: 0
   maxHealth: 5
+  damageInvincLenght: 1
 --- !u!4 &1561843904
 Transform:
   m_ObjectHideFlags: 0
@@ -1973,6 +1974,7 @@ MonoBehaviour:
   bulletToFire: {fileID: 1214740543577686382, guid: 947c5a6b40ee63346b416371b0009ecb, type: 3}
   firePoint: {fileID: 454225040}
   timeBetweenShots: 0.2
+  bodySR: {fileID: 657621337}
 --- !u!58 &2054328063
 CircleCollider2D:
   m_ObjectHideFlags: 0
