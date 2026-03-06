@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if(theBody.isVisible)
+        if (theBody.isVisible && PlayerController.instance.gameObject.activeInHierarchy)
         {
             if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < rangeToChasePlayer)
             {
@@ -62,6 +62,9 @@ public class EnemyController : MonoBehaviour
 
                 }
             }
+        } else
+        {
+            theRB.linearVelocity = Vector2.zero;
         }
 
 
