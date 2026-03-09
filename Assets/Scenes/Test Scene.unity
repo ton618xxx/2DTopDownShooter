@@ -931,7 +931,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657621335}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1975,7 +1975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989fc5e2aa387284e83b90e27d680904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 6
+  moveSpeed: 4
   theRB: {fileID: 2054328064}
   gunArm: {fileID: 795985862}
   anim: {fileID: 2054328065}
@@ -1983,6 +1983,10 @@ MonoBehaviour:
   firePoint: {fileID: 454225040}
   timeBetweenShots: 0.2
   bodySR: {fileID: 657621337}
+  dashSpeed: 8
+  dashLength: 0.5
+  dashCooldown: 1
+  dashInvinsibility: 0.5
 --- !u!58 &2054328063
 CircleCollider2D:
   m_ObjectHideFlags: 0
