@@ -23,7 +23,8 @@ public class EnemyBullet : MonoBehaviour
             PlayerHealthController.instance.DamagePlayer(); 
         }
 
-        Destroy(gameObject); 
+        Destroy(gameObject);
+        AudioManager.instance.PlaySFX(4);
     }
 
     private void OnBecameInvisible()
