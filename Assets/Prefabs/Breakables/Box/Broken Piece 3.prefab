@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3033708035842487393}
   - component: {fileID: 1924899212616733655}
   - component: {fileID: 3974018397941654625}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Broken Piece 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
