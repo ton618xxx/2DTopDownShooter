@@ -30,7 +30,7 @@ public class BreakablePieces : MonoBehaviour
         lifetime -= Time.deltaTime;
         if (lifetime < 0)
         {
-            theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, Mathf.MoveTowards(theSR.color.a, 0f, fadeSpeed * Time.deltaTime));
+            theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, Mathf.MoveTowards(theSR.color.a, 0f, fadeSpeed * Time.deltaTime)); 
 
             if (theSR.color.a == 0f)
             {
