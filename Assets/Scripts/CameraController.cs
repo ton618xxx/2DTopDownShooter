@@ -8,6 +8,9 @@ public class CameraController : MonoBehaviour
 
     public Transform target;
 
+    [Tooltip("Смещение камеры относительно цели. Y = -1 сдвигает кадр вниз.")]
+    public Vector2 positionOffset = new Vector2(0f, -1f);
+
     private void Awake()
     {
         instance = this; 
@@ -21,8 +24,8 @@ public class CameraController : MonoBehaviour
     {
         if (target != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.position.x, target.position.y, transform.position.z), moveSpeed * Time.deltaTime);
-
+            Vector3 targetPos = new Vector3(target.position.x + positionOffset.x, target.position.y + positionOffset.y, transform.position.z);
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
         }
 
     }

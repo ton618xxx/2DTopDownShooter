@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e3c201de09b264a897ef0a69124b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  closeWhenEntered: 1
+  closeWhenEntered: 0
   doors:
   - {fileID: 678244315060976651}
   - {fileID: 6293781443625266823}
