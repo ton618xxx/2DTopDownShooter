@@ -8016,7 +8016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   waitToLoad: 4
-  nextLevel: Test2
+  nextLevel: Victory
 --- !u!4 &1582816260 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6625822277189550174, guid: f68afc1bbb0d9124f865944ab56f8856, type: 3}
