@@ -12,10 +12,8 @@ public class Room : MonoBehaviour
 
     public List <GameObject> enemies = new List<GameObject> ();
 
-    // Комната уже была зачищена от врагов
-    private bool roomCleared;
 
-    private bool roomActive; 
+    private bool roomCleared;
 
     void Start()
     {
@@ -24,11 +22,12 @@ public class Room : MonoBehaviour
 
     void Update()
     {
-        if(enemies.Count > 0 && roomActive && openWhenEnemiesCleared)
+        if(enemies.Count > 0 && openWhenEnemiesCleared)
         {
             for(int i = 0;  i < enemies.Count; i++)
             {
-                if(enemies[i] == null)
+
+                if(enemies[i] == null || !enemies[i].activeInHierarchy)
                 {
                     enemies.RemoveAt(i);
                     i--;
@@ -36,7 +35,7 @@ public class Room : MonoBehaviour
             }
         }
 
-        // Когда врагов не осталось, считаем комнату зачищенной и открываем двери
+
         if(!roomCleared && openWhenEnemiesCleared && enemies.Count == 0)
         {
             roomCleared = true;
@@ -71,15 +70,11 @@ public class Room : MonoBehaviour
                     door.SetActive(false);
                 }
             }
-            roomActive = true;  
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.tag =="Player")
-        {
-            roomActive = false; 
-        }
+
     }
 }
