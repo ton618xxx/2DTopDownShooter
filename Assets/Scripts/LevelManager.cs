@@ -11,7 +11,9 @@ public class LevelManager : MonoBehaviour
 
     public float waitToLoad = 4f;
 
-    public string nextLevel; 
+    public string nextLevel;
+
+    public bool isPaused; 
 
     private void Awake()
     {
@@ -20,12 +22,15 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        
+        Time.timeScale = 1f;
     }
 
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseUnpause(); 
+        }
     }
 
     public IEnumerator LevelEnd()
@@ -40,5 +45,26 @@ public class LevelManager : MonoBehaviour
 
         SceneManager.LoadScene(nextLevel);
 
+    }
+
+    public void PauseUnpause()
+    {
+        if(!isPaused)
+        {
+            UIController.instance.pauseMenu.SetActive(true);
+
+            isPaused = true;
+
+            Time.timeScale = 0f; 
+
+        }
+        else
+        {
+            UIController.instance.pauseMenu.SetActive(false);
+
+            isPaused = false;
+
+            Time.timeScale = 1f;
+        }
     }
 }

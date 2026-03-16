@@ -13,7 +13,7 @@ public class VictoryScreen : MonoBehaviour
     public string mainMenuScene; 
     void Start()
     {
-        
+        Time.timeScale = 1f;
     }
 
     void Update()
