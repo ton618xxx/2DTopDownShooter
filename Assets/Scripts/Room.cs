@@ -48,14 +48,11 @@ public class Room : MonoBehaviour
         if(other.tag == "Player")
         {
             CameraController.instance.ChangeTarget(transform);
-
             if (closeWhenEntered)
             {
                 foreach(GameObject door in doors)
                 {
                     door.SetActive(true);
-
-                    closeWhenEntered = false;
                 }
             }
             roomActive = true;  
