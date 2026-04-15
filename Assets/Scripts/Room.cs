@@ -6,14 +6,15 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    public bool closeWhenEntered, openWhenEnemiesCleared; 
+    public bool closeWhenEntered /* , openWhenEnemiesCleared */; 
 
     public GameObject[] doors;
 
-    public List <GameObject> enemies = new List<GameObject> ();
+    //public List <GameObject> enemies = new List<GameObject> ();
 
+    [HideInInspector]
 
-    private bool roomCleared;
+    public bool roomCleared;
 
     void Start()
     {
@@ -22,7 +23,7 @@ public class Room : MonoBehaviour
 
     void Update()
     {
-        if(enemies.Count > 0 && openWhenEnemiesCleared)
+        /* if(enemies.Count > 0 && openWhenEnemiesCleared)
         {
             for(int i = 0;  i < enemies.Count; i++)
             {
@@ -44,6 +45,21 @@ public class Room : MonoBehaviour
             {
                 door.SetActive(false);
             }
+        } */
+    }
+
+    public void OpenDoors()
+    {
+        if (roomCleared)
+        {
+            return;
+        }
+
+        roomCleared = true;
+
+        foreach (GameObject door in doors)
+        {
+            door.SetActive(false);
         }
     }
 
