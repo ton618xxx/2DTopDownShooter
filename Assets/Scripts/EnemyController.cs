@@ -5,26 +5,28 @@ public class EnemyController : MonoBehaviour
     public Rigidbody2D theRB;
     public float moveSpeed;
 
+
+    [Header("Chase Player")]
     public bool shouldChasePlayer; 
     public float rangeToChasePlayer;
     private Vector3 moveDirection;
 
+    [Header("Run Away")]
     public bool shouldRunAway;
     public float runawayRange;
 
+    [Header("Wandering")]
     public bool shouldWander;
     public float wanderLength, pauseLength;
     private float wanderCounter, pauseCounter;
-    private Vector3 wanderDirection; 
+    private Vector3 wanderDirection;
 
-    public Animator anim;
+    [Header("Patrolling")]
+    public bool shouldPatrol;
+    public Transform[] patrolPoints;
+    private int currentPatrolPoint; 
 
-    public int health = 150;
-
-    public GameObject[] deathSplatters;
-
-    public GameObject hitEffect;
-
+    [Header("Shooting")]
     public bool shouldShoot;
 
     public GameObject bullet;
@@ -33,9 +35,19 @@ public class EnemyController : MonoBehaviour
     public float fireRate;
     private float fireCounter;
 
-    public float shootRange; 
+    public float shootRange;
 
-    public SpriteRenderer theBody; 
+    [Header("Variables")]
+    public SpriteRenderer theBody;
+
+    public Animator anim;
+
+    public int health = 150;
+
+    public GameObject[] deathSplatters;
+    public GameObject hitEffect;
+
+
 
 
 
@@ -82,6 +94,20 @@ public class EnemyController : MonoBehaviour
                             wanderCounter = Random.Range(wanderLength * .75f, wanderLength * 1.25f);
 
                             wanderDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f); 
+                        }
+                    }
+                }
+
+                if(shouldPatrol)
+                {
+                    moveDirection = patrolPoints[currentPatrolPoint].position - transform.position;
+
+                    if(Vector3.Distance(transform.position, patrolPoints[currentPatrolPoint].position) < .2f)
+                    {
+                        currentPatrolPoint++;
+                        if (currentPatrolPoint >= patrolPoints.Length)
+                        {
+                            currentPatrolPoint = 0;
                         }
                     }
                 }
