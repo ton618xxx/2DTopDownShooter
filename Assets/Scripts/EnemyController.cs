@@ -5,8 +5,12 @@ public class EnemyController : MonoBehaviour
     public Rigidbody2D theRB;
     public float moveSpeed;
 
+    public bool shouldChasePlayer; 
     public float rangeToChasePlayer;
     private Vector3 moveDirection;
+
+    public bool shouldRunAway;
+    public float runawayRange; 
 
     public Animator anim;
 
@@ -39,14 +43,22 @@ public class EnemyController : MonoBehaviour
     {
         if (theBody.isVisible && PlayerController.instance.gameObject.activeInHierarchy)
         {
-            if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < rangeToChasePlayer)
+            moveDirection = Vector3.zero;
+
+            if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < rangeToChasePlayer && shouldChasePlayer)
             {
                 moveDirection = PlayerController.instance.transform.position - transform.position;
             }
-            else
+
+            if(shouldRunAway && Vector3.Distance(transform.position, PlayerController.instance.transform.position) < runawayRange)
+            {
+                moveDirection = transform.position - PlayerController.instance.transform.position;  
+            }
+
+            /*else
             {
                 moveDirection = Vector3.zero;
-            }
+            } */
 
             moveDirection.Normalize();
 
