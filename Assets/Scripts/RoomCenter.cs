@@ -13,7 +13,10 @@ public class RoomCenter : MonoBehaviour
     public Room theRoom; 
     void Start()
     {
-        
+        if(openWhenEnemiesCleared)
+        {
+            theRoom.closeWhenEntered = true; 
+        }
     }
 
     void Update()
