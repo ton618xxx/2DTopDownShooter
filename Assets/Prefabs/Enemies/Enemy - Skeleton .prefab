@@ -98,9 +98,20 @@ MonoBehaviour:
   theRB: {fileID: 2356915836001651326}
   moveSpeed: 4
   shouldChasePlayer: 1
-  rangeToChasePlayer: 7
+  rangeToChasePlayer: 3
   shouldRunAway: 0
   runawayRange: 0
+  shouldWander: 0
+  wanderLength: 0
+  pauseLength: 0
+  shouldPatrol: 0
+  patrolPoints: []
+  shouldShoot: 1
+  bullet: {fileID: 4712142580588638715, guid: ef6b73484dd299045af7f3ad6805d210, type: 3}
+  firePoint: {fileID: 3607719216440523629}
+  fireRate: 1
+  shootRange: 10
+  theBody: {fileID: 4878774014448740243}
   anim: {fileID: 8631803549514461573}
   health: 150
   deathSplatters:
@@ -109,12 +120,6 @@ MonoBehaviour:
   - {fileID: 6504907106728184406, guid: e52670e50f91d3a41b92fbf67bed7674, type: 3}
   - {fileID: 4240964633872959246, guid: 1284b5014b73f8b41b1784df61ba2bea, type: 3}
   hitEffect: {fileID: 4410737146009504680, guid: 8eae6e0ae449e4d4fa7939a7a08c5e70, type: 3}
-  shouldShoot: 1
-  bullet: {fileID: 4712142580588638715, guid: ef6b73484dd299045af7f3ad6805d210, type: 3}
-  firePoint: {fileID: 3607719216440523629}
-  fireRate: 1
-  shootRange: 10
-  theBody: {fileID: 4878774014448740243}
 --- !u!50 &2356915836001651326
 Rigidbody2D:
   serializedVersion: 5

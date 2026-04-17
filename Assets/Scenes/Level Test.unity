@@ -2404,16 +2404,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5368873007914780619, guid: bfe313cdaff108b449e548fd07856eb3, type: 3}
       propertyPath: distanceToEnd
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5368873007914780619, guid: bfe313cdaff108b449e548fd07856eb3, type: 3}
       propertyPath: potentialCenters.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5368873007914780619, guid: bfe313cdaff108b449e548fd07856eb3, type: 3}
       propertyPath: 'potentialCenters.Array.data[2]'
       value: 
       objectReference: {fileID: 9186015350613288508, guid: 9e583331304aacd4bac871fcf5df4d50, type: 3}
+    - target: {fileID: 5368873007914780619, guid: bfe313cdaff108b449e548fd07856eb3, type: 3}
+      propertyPath: 'potentialCenters.Array.data[3]'
+      value: 
+      objectReference: {fileID: 6235743483777627580, guid: 270f9a3530da97d478e8924db805de1f, type: 3}
+    - target: {fileID: 5368873007914780619, guid: bfe313cdaff108b449e548fd07856eb3, type: 3}
+      propertyPath: 'potentialCenters.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2289123331532089455, guid: a48e3dfa82645354fa14dbff63c14bfe, type: 3}
+    - target: {fileID: 5368873007914780619, guid: bfe313cdaff108b449e548fd07856eb3, type: 3}
+      propertyPath: 'potentialCenters.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2109682189536473148, guid: 6ccdd7bda61c9814198767e6ccbeec1c, type: 3}
     - target: {fileID: 6717292601469116051, guid: bfe313cdaff108b449e548fd07856eb3, type: 3}
       propertyPath: m_Name
       value: 'Level Generator '
@@ -4522,7 +4534,7 @@ Transform:
   m_GameObject: {fileID: 2054328060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.95, y: -0.39, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
