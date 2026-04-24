@@ -51,7 +51,11 @@ public class EnemyController : MonoBehaviour
     public GameObject[] itemsToDrop;
     public float itemDropPercent;
 
-
+    [Header("Room Binding")]
+    // Ссылка на "домашнюю" комнату врага. Враг агрится на игрока только тогда,
+    // когда игрок находится внутри этой комнаты. Назначается автоматически
+    // из Room.cs / RoomCenter.cs при старте уровня.
+    public Room homeRoom;
 
 
 
@@ -65,7 +69,12 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if (theBody.isVisible && PlayerController.instance.gameObject.activeInHierarchy)
+        // Враг ведёт себя активно только если игрок вошёл в ту же секцию (комнату),
+        // где он размещён. Это не даёт врагам из соседних комнат преждевременно
+        // замечать игрока и стрелять через стены/двери.
+        bool playerInMyRoom = homeRoom == null || homeRoom.playerInRoom;
+
+        if (theBody.isVisible && PlayerController.instance.gameObject.activeInHierarchy && playerInMyRoom)
         {
             moveDirection = Vector3.zero;
 
@@ -146,6 +155,7 @@ public class EnemyController : MonoBehaviour
         } else
         {
             theRB.linearVelocity = Vector2.zero;
+            moveDirection = Vector3.zero;
         }
 
 

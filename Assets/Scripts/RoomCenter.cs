@@ -17,6 +17,20 @@ public class RoomCenter : MonoBehaviour
         {
             theRoom.closeWhenEntered = true; 
         }
+
+        // Привязываем всех врагов этой секции к конкретной комнате, чтобы
+        // они не реагировали на игрока, пока он не вошёл именно сюда.
+        if (theRoom != null)
+        {
+            EnemyController[] centerEnemies = GetComponentsInChildren<EnemyController>(true);
+            foreach (EnemyController enemy in centerEnemies)
+            {
+                if (enemy != null)
+                {
+                    enemy.homeRoom = theRoom;
+                }
+            }
+        }
     }
 
     void Update()
