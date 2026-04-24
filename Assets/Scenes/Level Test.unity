@@ -1926,7 +1926,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5368873007914780619, guid: bfe313cdaff108b449e548fd07856eb3, type: 3}
       propertyPath: distanceToEnd
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5368873007914780619, guid: bfe313cdaff108b449e548fd07856eb3, type: 3}
       propertyPath: potentialCenters.Array.size
