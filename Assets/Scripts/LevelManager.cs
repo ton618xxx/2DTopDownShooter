@@ -28,6 +28,16 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
+        UpdateCoinText();
+    }
+
+    private void UpdateCoinText()
+    {
+        // На некоторых сценах (например, Shop Test) может не быть UIController
+        // или у него не задан coinText. Не падаем, просто тихо игнорируем.
+        if (UIController.instance == null) return;
+        if (UIController.instance.coinText == null) return;
+
         UIController.instance.coinText.text = currentCoins.ToString();
     }
 
@@ -78,7 +88,7 @@ public class LevelManager : MonoBehaviour
     {
         currentCoins += amount;
 
-        UIController.instance.coinText.text = currentCoins.ToString();
+        UpdateCoinText();
     }
 
     public void SpendCoins(int amount)
@@ -90,6 +100,6 @@ public class LevelManager : MonoBehaviour
             currentCoins = 0;   
         }
 
-        UIController.instance.coinText.text = currentCoins.ToString();
+        UpdateCoinText();
     }
 }
