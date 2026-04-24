@@ -985,6 +985,10 @@ MonoBehaviour:
   - {fileID: 6504907106728184406, guid: e52670e50f91d3a41b92fbf67bed7674, type: 3}
   - {fileID: 4240964633872959246, guid: 1284b5014b73f8b41b1784df61ba2bea, type: 3}
   hitEffect: {fileID: 4410737146009504680, guid: 8eae6e0ae449e4d4fa7939a7a08c5e70, type: 3}
+  shouldDropItem: 1
+  itemsToDrop:
+  - {fileID: 5021872119786195623, guid: 665e2bddc8006e54593a2de09acde03f, type: 3}
+  itemDropPercent: 25
 --- !u!50 &1737500225598755569
 Rigidbody2D:
   serializedVersion: 5
@@ -1261,6 +1265,10 @@ MonoBehaviour:
   - {fileID: 6504907106728184406, guid: e52670e50f91d3a41b92fbf67bed7674, type: 3}
   - {fileID: 4240964633872959246, guid: 1284b5014b73f8b41b1784df61ba2bea, type: 3}
   hitEffect: {fileID: 4410737146009504680, guid: 8eae6e0ae449e4d4fa7939a7a08c5e70, type: 3}
+  shouldDropItem: 1
+  itemsToDrop:
+  - {fileID: 5021872119786195623, guid: 665e2bddc8006e54593a2de09acde03f, type: 3}
+  itemDropPercent: 25
 --- !u!50 &7577901189409659299
 Rigidbody2D:
   serializedVersion: 5
@@ -4451,6 +4459,10 @@ MonoBehaviour:
   - {fileID: 6504907106728184406, guid: e52670e50f91d3a41b92fbf67bed7674, type: 3}
   - {fileID: 4240964633872959246, guid: 1284b5014b73f8b41b1784df61ba2bea, type: 3}
   hitEffect: {fileID: 4410737146009504680, guid: 8eae6e0ae449e4d4fa7939a7a08c5e70, type: 3}
+  shouldDropItem: 1
+  itemsToDrop:
+  - {fileID: 5021872119786195623, guid: 665e2bddc8006e54593a2de09acde03f, type: 3}
+  itemDropPercent: 25
 --- !u!50 &4398425610179437130
 Rigidbody2D:
   serializedVersion: 5

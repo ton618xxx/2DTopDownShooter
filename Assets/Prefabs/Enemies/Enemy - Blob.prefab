@@ -136,6 +136,14 @@ MonoBehaviour:
   shouldWander: 1
   wanderLength: 4
   pauseLength: 1.5
+  shouldPatrol: 0
+  patrolPoints: []
+  shouldShoot: 0
+  bullet: {fileID: 4712142580588638715, guid: ef6b73484dd299045af7f3ad6805d210, type: 3}
+  firePoint: {fileID: 5125640635665629351}
+  fireRate: 1
+  shootRange: 10
+  theBody: {fileID: 7562681865034684157}
   anim: {fileID: 6838786047403091039}
   health: 150
   deathSplatters:
@@ -144,12 +152,10 @@ MonoBehaviour:
   - {fileID: 6504907106728184406, guid: e52670e50f91d3a41b92fbf67bed7674, type: 3}
   - {fileID: 4240964633872959246, guid: 1284b5014b73f8b41b1784df61ba2bea, type: 3}
   hitEffect: {fileID: 4410737146009504680, guid: 8eae6e0ae449e4d4fa7939a7a08c5e70, type: 3}
-  shouldShoot: 0
-  bullet: {fileID: 4712142580588638715, guid: ef6b73484dd299045af7f3ad6805d210, type: 3}
-  firePoint: {fileID: 5125640635665629351}
-  fireRate: 1
-  shootRange: 10
-  theBody: {fileID: 7562681865034684157}
+  shouldDropItem: 1
+  itemsToDrop:
+  - {fileID: 5021872119786195623, guid: 665e2bddc8006e54593a2de09acde03f, type: 3}
+  itemDropPercent: 100
 --- !u!50 &5999950155555797413
 Rigidbody2D:
   serializedVersion: 5

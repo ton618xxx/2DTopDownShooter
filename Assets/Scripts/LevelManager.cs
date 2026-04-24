@@ -13,7 +13,11 @@ public class LevelManager : MonoBehaviour
 
     public string nextLevel;
 
-    public bool isPaused; 
+    public bool isPaused;
+
+    public int currentCoins;
+
+
 
     private void Awake()
     {
@@ -23,6 +27,8 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
+
+        UIController.instance.coinText.text = currentCoins.ToString();
     }
 
     void Update()
@@ -66,5 +72,24 @@ public class LevelManager : MonoBehaviour
 
             Time.timeScale = 1f;
         }
+    }
+
+    public void GetCoins(int amount)
+    {
+        currentCoins += amount;
+
+        UIController.instance.coinText.text = currentCoins.ToString();
+    }
+
+    public void SpendCoins(int amount)
+    {
+        currentCoins -= amount;
+
+        if(currentCoins < 0)
+        {
+            currentCoins = 0;   
+        }
+
+        UIController.instance.coinText.text = currentCoins.ToString();
     }
 }
